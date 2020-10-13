@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX client</title>
+</head>
+<body onLoad="getData();">
+Content:
+<br/>
+<div id="content">
+
+</div>
+<script type="text/javascript">
+
+    function treatData(content) {
+        let elem=document.getElementById("content");
+        elem.innerHTML='';
+        for (let item of content) {
+            elem.innerHTML+="<p><strong>"+item+"</strong></p>";
+        }
+
+    }
+
+    function getData() {
+        let url="/data";
+        fetch(url).
+        then(response=>response.json()).
+        then(res=>treatData(res));
+    }
+
+
+</script>
+</body>
+</html>

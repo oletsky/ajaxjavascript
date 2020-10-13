@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX with jQuery</title>
+</head>
+<body onload="setInterval(show,1000);">
+Content:
+<br/>
+<div id="content">
+
+</div>
+<script type="text/javascript">
+
+    function show()
+    {
+        $.ajax({
+            url: "/data",
+            cache: false,
+            success: function(html){
+                $("#content").html(html);
+            }
+        });
+    }
+
+
+
+</script>
+<!-- Linking jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+</body>
+</html>
